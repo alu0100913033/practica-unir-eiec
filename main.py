@@ -47,3 +47,15 @@ if __name__ == "__main__":
         word_list = remove_duplicates_from_list(word_list)
 
     print(sort_list(word_list))
+
+
+def write_sorted_words_to_file(words, filename):
+
+    try:
+        with open(filename, "w") as file:
+            sorted_words = sort_list(words)  # Sort the words
+            for word in sorted_words:
+                file.write(word + "\n")  # Write each word to a new line in the file
+        print(f"Las palabras se han escrito en el archivo '{filename}' en orden ascendente.")
+    except Exception as e:
+        print(f"Error al escribir las palabras en el archivo '{filename}': {e}")
